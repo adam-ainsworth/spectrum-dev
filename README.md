@@ -13,12 +13,17 @@ The following tools are used
 
 I also relied heavily on code / advice from [this gist](https://gist.github.com/wesort/fabf99b0d4c06093057ac7e3cdcd38fd) and [this tutorial](https://github.com/OniDaito/speccy).
 
+## Notes
+
 I had a couple of false starts, initially using lando and trying to run it with Webpack but it was just too fiddly and like trying to fit square pegs into round holes, so I've gon back to basics with bash scripts.
 
-There's plenty I can do to improve it;
+I have included a prebuilt version of bin2tap (v1.3), which is the newest that I can gett building. If you want to try newer versions, you can do so within the container by updating bin2tap.c and uncommenting the build line in the Dockerfile. You will need to copy this file to /root/src to easily get it back out of the container. *Please let me know if you manage this :-)*
 
-* Get a more up-to-date version of bin2tap
-* Allow more flexibility with the compile options and emulator setting (probably via a .env file)
+## TODO
+
+* Allow more flexibility with the compile options and emulator settings (probably via a .env file)
+* Allow multi load tape images
+* Add options for including basic and screen files
 
 Feel free to submit any suggestions, and let me know if you find this useful. 
 

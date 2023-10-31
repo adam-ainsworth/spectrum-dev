@@ -1,5 +1,6 @@
-echo -e 'Build!\n'
-
+#!/bin/bash
 pasmo -d -v --bin /root/src/program.asm /root/src/program.bin
-/root/bin2tap /root/src/program.bin /var/www/html/program.tap
+
+bin2tap -b -cb 0 -cp 0 -ci 7 -o /var/www/html/program.tap /root/src/program.bin
+
 rm /root/src/program.bin
