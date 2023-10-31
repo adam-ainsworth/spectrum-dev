@@ -1,6 +1,6 @@
-# Spectrum dev environment
+# Spectrum Dev
 
-Here is a semi automated environment for building Spectrum machine code programs. It is quite limited at the moment, but you can build it using ```docker compose up``` and once it is ready you can visit [localhost](http://localhost) to load a local version of JSSpeccy3.
+Here is a semi automated environment for building Spectrum machine code programs. It is quite limited at the moment, but you can build it using ```docker compose up``` (add ```--build``` to rebuild it) and once it is ready you can visit [localhost](http://localhost) to load a local version of JSSpeccy3.
 
 To deploy your development, simply save a text assembly program (named program.asm) in /src, and it will automatically reload in the browser.
 
@@ -21,7 +21,6 @@ There's plenty I can do to improve it;
 * Get a more up-to-date version of bin2tap
 * Allow more flexibility with the compile options and emulator setting (probably via a .env file)
 * Find a more elegant way of refreshing the browser than merely checking once a second for a file change
-* Sort out the GPL licensing
 
 Feel free to submit any suggestions, and let me know if you find this useful. 
 
@@ -36,3 +35,7 @@ ld bc, $1800
 ldir
 ret
 ```
+
+## Licence
+
+Spectrum Dev is licensed under the GPL version 3 - see LICENCE.
