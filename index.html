@@ -1,47 +1,61 @@
 <!doctype html>
 <html>
     <head>
-        <title>JSSpeccy 3</title>
+        <title>Spectrum Dev</title>
         <script src="/jsspeccy/jsspeccy.js"></script>
     </head>
     <body>
         <div id="jsspeccy"></div>
 
         <script>
-            window.addEventListener("load", (event) => {
-                const checkTimer = setInterval(fetchData, 1000), emu = JSSpeccy(document.getElementById('jsspeccy'), {
+            let programUrl = '/program.tap',
+                checkTimer = setInterval(fetchData, 1000), args = {
                     autoStart: true,
-                    openUrl: '/program.tap',
                     zoom: 2,
                     sandbox: false,
                     tapeAutoLoadMode: 'usr0',
                     autoLoadTapes: true,
-                });
+                },
+                previousCrc = 0,
+                isFirstRun = true;
 
-                let previousCrc = 0, isFirstRun = true;
-
-                function fetchData() {
-                    let data, xhr = new XMLHttpRequest();
-                    xhr.responseType = 'text';
-                    xhr.onload = function () {
-                        data = xhr.responseText;
-                        checkForDataChanges(data);
-                    }
-                    xhr.open("GET", '/program.tap');
-                    xhr.send();
+            window.addEventListener("load", (event) => {
+                if( programExists() ) {
+                    args.openUrl = programUrl;
                 }
 
-                function checkForDataChanges(data) {
-                    if (isFirstRun) {
-                        previousCrc = crc32(data);
-                        isFirstRun = false;
-                    }
-                    let newCrc = crc32(data);
-                    if (newCrc != previousCrc) {
-                        location.reload()
-                    }
-                }
+                const emu = JSSpeccy(document.getElementById('jsspeccy'), args);
             });
+
+            function fetchData() {
+                let data, xhr = new XMLHttpRequest();
+                xhr.responseType = 'text';
+                xhr.onload = function () {
+                    data = xhr.responseText;
+                    checkForDataChanges(data);
+                }
+                xhr.open("GET", '/program.tap');
+                xhr.send();
+            }
+
+            function checkForDataChanges(data) {
+                if (isFirstRun) {
+                    previousCrc = crc32(data);
+                    isFirstRun = false;
+                }
+                let newCrc = crc32(data);
+                if (newCrc != previousCrc) {
+                    location.reload()
+                }
+            }
+
+            function programExists() {
+                const http = new XMLHttpRequest();
+                http.open('HEAD', programUrl, false);
+                http.send();
+                
+                return http.status != 404;
+            }
 
             /*
             ===============================================================================
