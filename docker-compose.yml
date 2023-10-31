@@ -1,0 +1,17 @@
+version: "3.3"
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: spectrum-dev
+    restart: always
+    stdin_open: true
+    environment:
+      - ALLOW_OVERRIDE=true
+    ports:
+      - "80:80"
+      - "35729:35729" # live reload
+    volumes:
+      - ./src:/root/src/
