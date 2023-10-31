@@ -17,10 +17,8 @@ I had a couple of false starts, initially using lando and trying to run it with 
 
 There's plenty I can do to improve it;
 
-* Separate the docker containers out
 * Get a more up-to-date version of bin2tap
 * Allow more flexibility with the compile options and emulator setting (probably via a .env file)
-* Find a more elegant way of refreshing the browser than merely checking once a second for a file change
 
 Feel free to submit any suggestions, and let me know if you find this useful. 
 
