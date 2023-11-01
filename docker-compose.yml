@@ -8,8 +8,8 @@ services:
     container_name: spectrum-dev
     restart: always
     stdin_open: true
-    environment:
-      - ALLOW_OVERRIDE=true
+    env_file:
+      - ./.env
     ports:
       - "80:80"
       - "35729:35729" # live reload

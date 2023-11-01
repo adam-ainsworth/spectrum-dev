@@ -13,6 +13,14 @@ The following tools are used
 
 I also relied heavily on code / advice from [this gist](https://gist.github.com/wesort/fabf99b0d4c06093057ac7e3cdcd38fd), and [this tutorial](https://benjamin.computer/posts/2022-04-22-ZX-coding.html) with the [accompanying code](https://github.com/OniDaito/speccy).
 
+## Environment variables
+
+You can can a file named .env with the following environment vairables (more will be added as they are implemented)
+
+* MACHINE - 48, 128, 5
+
+Please see the [JSSpeccy 3 readme](https://github.com/gasman/jsspeccy3#embedding) for valid values.
+
 ## Notes
 
 I had a couple of false starts, initially using lando and trying to run it with Webpack but it was just too fiddly and like trying to fit square pegs into round holes, so I've gone back to basics with bash scripts.
@@ -21,8 +29,7 @@ I have included a prebuilt version of bin2tap (v1.3), which is the newest that I
 
 ## TODO
 
-* Allow more flexibility with the compile options and emulator settings (probably via a .env file)
-* Allow multi load tape images
+* Allow more flexibility with the compile options & allow multi load tape images
 * Add options for including basic and screen files
 
 Feel free to submit any suggestions, and let me know if you find this useful. 

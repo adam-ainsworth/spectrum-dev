@@ -8,6 +8,7 @@
                 display: flex;
                 height: 100vh;
                 margin: 0;
+                font-family: Arial, Helvetica, sans-serif;
                 background-color: #333;
             }
 
@@ -34,6 +35,7 @@
         <a id="download" href="/program.tap" target="_blank">Download TAP</a>
 
         <script>
+            const machine = ['48', '128', '5'].includes(envMachine) ? envMachine : '48';
             let previousCrc = 0;
 
             window.addEventListener('load', (event) => {
@@ -47,6 +49,7 @@
                         sandbox: false,
                         tapeAutoLoadMode: 'usr0',
                         autoLoadTapes: true,
+                        machine: machine,
                     },
                     emu = JSSpeccy(document.getElementById('jsspeccy'), args);
 
