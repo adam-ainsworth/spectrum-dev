@@ -15,11 +15,13 @@ I also relied heavily on code / advice from [this gist](https://gist.github.com/
 
 ## Environment variables
 
-You can can a file named .env with the following environment vairables (more will be added as they are implemented)
+You can can a file named .env with the following environment variables (more will be added as they are implemented)
 
 * MACHINE - 48, 128, 5
 
 Please see the [JSSpeccy 3 readme](https://github.com/gasman/jsspeccy3#embedding) for valid values.
+
+**Note** even if you don't need to use it, you must rename .env.example to .env or Docker won't start.
 
 ## Notes
 
