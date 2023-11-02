@@ -41,4 +41,6 @@ else
   sed -i "s/envTapeTrapsEnabled/${TAPETRAPSENABLED}/g" /var/www/html/index.html
 fi
 
+touch /var/www/html/program.tap
+
 /root/watch.sh
