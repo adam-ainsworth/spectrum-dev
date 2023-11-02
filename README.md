@@ -22,6 +22,7 @@ You can can a file named .env with the following environment variables
 * TAPEAUTOLOADMODE - default, usr0
 * KEYBOARDENABLED - 0, 1
 * UIENABLED - 0, 1
+* TAPETRAPSENABLED - 0, 1
 
 Please see the [JSSpeccy 3 readme](https://github.com/gasman/jsspeccy3#embedding) for valid values.
 

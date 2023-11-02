@@ -35,4 +35,10 @@ else
   sed -i "s/envUiEnabled/${UIENABLED}/g" /var/www/html/index.html
 fi
 
+if [[ -z "${TAPETRAPSENABLED}" ]]; then
+  sed -i "s/envTapeTrapsEnabled/null/g" /var/www/html/index.html
+else
+  sed -i "s/envTapeTrapsEnabled/${TAPETRAPSENABLED}/g" /var/www/html/index.html
+fi
+
 /root/watch.sh

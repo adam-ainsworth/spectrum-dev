@@ -40,6 +40,7 @@
             const tapeAutoLoadMode = ['default', 'usr0'].includes(envTapeAutoLoadMode) ? envTapeAutoLoadMode : 'default';
             const keyboardEnabled = [0, 1].includes(envKeyboardEnabled) ? envKeyboardEnabled : 1;
             const uiEnabled = [0, 1].includes(envUiEnabled) ? envUiEnabled : 1;
+            const tapeTrapsEnabled = [0, 1].includes(envTapeTrapsEnabled) ? envTapeTrapsEnabled : 1;
 
             let previousCrc = 0;
 
@@ -58,6 +59,7 @@
                         tapeAutoLoadMode: tapeAutoLoadMode,
                         keyboardEnabled: (keyboardEnabled === 1),
                         uiEnabled: (uiEnabled === 1),
+                        tapeTrapsEnabled: (tapeTrapsEnabled === 1),
                     });
 
                 function checkUpdate() {
