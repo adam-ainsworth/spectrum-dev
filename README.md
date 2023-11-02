@@ -2,11 +2,18 @@
 
 Here is a semi automated environment for building Spectrum machine code programs. It is quite limited at the moment, but you can build it using ```docker compose up``` (add ```--build``` to rebuild it) and once it is ready you can visit [localhost](http://localhost) to load a local version of JSSpeccy3.
 
-To deploy your development, simply save a text assembly program (named program.asm) in /src, and it will automatically reload in the browser.
+# Usage
+
+Once the container is built and you have it running in your browser, you can add a single program.bas (a BASIC loader), program.scr (a standard 6912 byte loading screen) and program.asm - your assembly program in Z80 assembler. Save this in /src and whenever any of them are changed, it will automatically reload in the browser.
+
+If you have tapeTrapsEnabled set to true, you won't see the screen as everything autoloads, but there is a link in the top right for you to download the built tap file.
+
+## Components
 
 The following tools are used
 
 * [Docker](https://www.docker.com/) with the [ubuntu/nginx image](https://hub.docker.com/r/ubuntu/nginx)
+* [zmakebas](https://github.com/z00m128/zmakebas)
 * [pasmo](https://pasmo.speccy.org/)
 * [bin2tap](http://zeroteam.sk/bin2tap.html) (albeit an old version and building it from source)
 * [JSSpeccy 3](https://github.com/gasman/jsspeccy3)

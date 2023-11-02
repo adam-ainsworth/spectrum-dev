@@ -12,7 +12,7 @@ COPY ./jsspeccy /var/www/html/jsspeccy
 
 WORKDIR /root
 
-RUN apt-get update && apt-get install pasmo && chmod 700 *.sh
+RUN apt-get update && apt-get install pasmo zmakebas && chmod 700 *.sh
 
 # RUN apt-get update && apt-get install unzip pasmo && chmod 700 *.sh && unzip jsspeccy-3.1.zip && mv jsspeccy-3.1/jsspeccy /var/www/html && rm -rf jsspeccy-3.1 jsspeccy-3.1.zip && apt-get remove unzip -y
 
