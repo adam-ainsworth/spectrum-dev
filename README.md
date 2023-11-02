@@ -33,6 +33,8 @@ I had a couple of false starts, initially using lando and trying to run it with 
 
 I have included a prebuilt version of bin2tap (v1.3), which is the newest that I can gett building. If you want to try newer versions, you can do so within the container by updating bin2tap.c and uncommenting the build line in the Dockerfile. You will need to copy this file to /root/src to easily get it back out of the container. *Please let me know if you manage this :-)*
 
+Some of the arguments weren't working with this latest release of JSSpeccy, although they are included in the source code. While I could clone it and build it within the container, it would be very bloated, so I've decided to build it once myself and include it here for now.
+
 ## TODO
 
 * Allow more flexibility with the compile options & allow multi load tape images
