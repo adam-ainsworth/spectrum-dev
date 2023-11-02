@@ -36,6 +36,11 @@
 
         <script>
             const machine = ['48', '128', '5'].includes(envMachine) ? envMachine : '48';
+            const autoLoadTapes = [0, 1].includes(envAutoLoadTapes) ? envAutoLoadTapes : 1;
+            const tapeAutoLoadMode = ['default', 'usr0'].includes(envTapeAutoLoadMode) ? envTapeAutoLoadMode : 'default';
+            const keyboardEnabled = [0, 1].includes(envKeyboardEnabled) ? envKeyboardEnabled : 1;
+            const uiEnabled = [0, 1].includes(envUiEnabled) ? envUiEnabled : 1;
+
             let previousCrc = 0;
 
             window.addEventListener('load', (event) => {
@@ -43,15 +48,17 @@
                     checkTimer = setInterval(checkUpdate, 1000),
                     width = Math.floor(window.innerWidth / 320),
                     height = Math.floor((window.innerHeight - (25 + 30)) / 240),
-                    args = {
+                    emu = JSSpeccy(document.getElementById('jsspeccy'),
+                    {
+                        machine: machine,
                         autoStart: true,
                         zoom: (width > height) ? height : width,
                         sandbox: false,
-                        tapeAutoLoadMode: 'usr0',
-                        autoLoadTapes: true,
-                        machine: machine,
-                    },
-                    emu = JSSpeccy(document.getElementById('jsspeccy'), args);
+                        autoLoadTapes: (autoLoadTapes === 1),
+                        tapeAutoLoadMode: tapeAutoLoadMode,
+                        keyboardEnabled: (keyboardEnabled === 1),
+                        uiEnabled: (uiEnabled === 1),
+                    });
 
                 function checkUpdate() {
                     const xhr = new XMLHttpRequest();

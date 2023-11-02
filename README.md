@@ -15,9 +15,13 @@ I also relied heavily on code / advice from [this gist](https://gist.github.com/
 
 ## Environment variables
 
-You can can a file named .env with the following environment variables (more will be added as they are implemented)
+You can can a file named .env with the following environment variables
 
 * MACHINE - 48, 128, 5
+* AUTOLOADTAPES - 0, 1
+* TAPEAUTOLOADMODE - default, usr0
+* KEYBOARDENABLED - 0, 1
+* UIENABLED - 0, 1
 
 Please see the [JSSpeccy 3 readme](https://github.com/gasman/jsspeccy3#embedding) for valid values.
 
