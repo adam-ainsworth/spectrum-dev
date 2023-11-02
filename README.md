@@ -2,11 +2,13 @@
 
 Here is a semi automated environment for building Spectrum machine code programs. It is quite limited at the moment, but you can build it using ```docker compose up``` (add ```--build``` to rebuild it) and once it is ready you can visit [localhost](http://localhost) to load a local version of JSSpeccy3.
 
-# Usage
+## Usage
 
 Once the container is built and you have it running in your browser, you can add a single program.bas (a BASIC loader), program.scr (a standard 6912 byte loading screen) and program.asm - your assembly program in Z80 assembler. Save this in /src and whenever any of them are changed, it will automatically reload in the browser.
 
 If you have tapeTrapsEnabled set to true, you won't see the screen as everything autoloads, but there is a link in the top right for you to download the built tap file.
+
+There is a short set of example files in /example - you'll notice that this version of bin2tap doesn't allow you to set the name, so I need to get that sorted out.
 
 ## Components
 
