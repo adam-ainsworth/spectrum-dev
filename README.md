@@ -4,13 +4,25 @@ Here is a semi automated environment for building Spectrum machine code programs
 
 ## Usage
 
-Once the container is built and you have it running in your browser, you can add a single program.bas (a BASIC loader), program.scr (a standard 6912 byte loading screen) and program.asm - your assembly program in Z80 assembler. Save this in /src and whenever any of them are changed, it will automatically reload in the browser.
+Once the container is built and you have it running in your browser, you need to create a program.conf in /src for the blocks to go on the tape. This is of the format
+
+```filename:headername:start```
+
+The filename can be anything you choose but the extension will determine how it is treated;
+
+* .bas - BASIC program, start signifies the line number to auto run from
+* .scr / .bin - raw binary, will be added as-is, start is where to place the code within RAM
+* .asm - Z80 code to be assembled, start is where to place the code within RAM
+
+It is advisable to keep all the files within /src and not to put spaces in the filenames. The header name (ie. the program name when loading) cannot have spaces in.
+
+Whenever any files in /src are changed, the tap will be rebuilt and automatically reloaded in the browser.
 
 If you have tapeTrapsEnabled set to true, you won't see the screen as everything autoloads, but there is a link in the top right for you to download the built tap file.
 
-If you need to SSH into the container run ```docker exec -it spectrum-dev /bin/bash```
+To SSH into the container run ```docker exec -it spectrum-dev /bin/bash```
 
-There is a short set of example files in /example.
+There is a set of example files in /example. Feel free to submit any suggestions, and let me know if you find this useful. 
 
 ## Components
 
@@ -47,13 +59,6 @@ I had a couple of false starts, initially using lando and trying to run it with 
 I have included a prebuilt version of taput but you can change the Dockerfile to rebuild it if you wish.
 
 Some of the arguments weren't working with this latest release of JSSpeccy, although they are included in the source code. While I could clone it and build it within the container, it would be very bloated, so I've decided to build it once myself and include it here for now.
-
-## TODO
-
-* Allow more flexibility with the compile options & allow multi load tape images
-* Add options for including basic and screen files
-
-Feel free to submit any suggestions, and let me know if you find this useful. 
 
 ## Licence
 

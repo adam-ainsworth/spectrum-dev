@@ -21,18 +21,31 @@ function add_code() {
     rm program.bin
 }
 
-INPUT=program.bas
-NAME="HelloWorld"
-START=10
-add_basic
+while read p; do
 
-INPUT=program.scr
-NAME="Hello SCR"
-START=16384
-add_bin 
+    line=(${p//:/ })
 
-INPUT=program.asm
-NAME="Hello Code"
-START=32768
-add_code 
+    INPUT=${line[0]}
+    EXT="${INPUT##*.}"
+    NAME=${line[1]}
+    START=${line[2]}
 
+    case $EXT in
+        "bas")
+            add_basic
+            ;;
+
+        "scr" | "bin")
+            add_bin
+            ;;
+
+        "asm")
+            add_code
+            ;;
+        
+        *)
+            echo "$EXT is an invalid extension"
+            ;;
+    esac
+
+done < program.conf
