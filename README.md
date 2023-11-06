@@ -4,7 +4,7 @@ Here is a semi automated environment for building Spectrum machine code programs
 
 ## Usage
 
-Once the container is built and you have it running in your browser, you need to create a program.conf in /src for the blocks to go on the tape. This is of the format
+Once the container is built and you have it running in your browser, you need to create a config file in /src for the blocks to go on the tape. By default this is named ```program.conf``` but you can set it to anything you like via an environment variable (see below), meaning you can develop multiple programs with the same setup. The config file is of the format
 
 ```filename:headername:start```
 
@@ -14,7 +14,7 @@ The filename can be anything you choose but the extension will determine how it 
 * .scr / .bin - raw binary, will be added as-is, start is where to place the code within RAM
 * .asm - Z80 code to be assembled, start is where to place the code within RAM
 
-It is advisable to keep all the files within /src and not to put spaces in the filenames. The header name (ie. the program name when loading) cannot have spaces in.
+It is advisable to keep all the files within /src and not to put spaces in the filenames - you can use subfolders if you wish. The header name (ie. the program name when loading) cannot have spaces in.
 
 Whenever any files in /src are changed, the tap will be rebuilt and automatically reloaded in the browser.
 
@@ -41,6 +41,7 @@ I also relied heavily on code / advice from [this gist](https://gist.github.com/
 
 You can can a file named .env with the following environment variables
 
+* PROGRAM - the name of your config file within /src
 * MACHINE - 48, 128, 5
 * AUTOLOADTAPES - 0, 1
 * TAPEAUTOLOADMODE - default, usr0

@@ -5,6 +5,10 @@ if test -f $OUTPUT; then
     rm $OUTPUT
 fi
 
+if [ -z $PROGRAM ]; then
+    PROGRAM=program.conf
+fi
+
 function add_basic() {
     zmakebas -r -o program.bin $INPUT
     taput add -b -n "$NAME" -o $START program.bin $OUTPUT
@@ -48,4 +52,4 @@ while read p; do
             ;;
     esac
 
-done < program.conf
+done < $PROGRAM
