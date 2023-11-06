@@ -5,12 +5,15 @@ if test -f $OUTPUT; then
     rm $OUTPUT
 fi
 
-zmakebas -a 10 -n Hello -o $OUTPUT /root/src/program.bas
+# BASIC
+zmakebas -r -o program.bin program.bas
+taput add -b -n "HelloWorld" -o 10 program.bin $OUTPUT
+rm program.bin
 
-bin2tap -o $OUTPUT /root/src/program.scr -a 16384 -append
+# SCREEN
+taput add -n "Hello SCR" -o 16384 program.scr $OUTPUT
 
-pasmo -d -v --bin /root/src/program.asm /root/src/program.bin
-
-# TODO add option for header
-bin2tap -o $OUTPUT /root/src/program.bin -append
-rm /root/src/program.bin
+# CODE
+pasmo -d --bin program.asm program.bin
+taput add -n "Hello Code" -o 32768 program.bin $OUTPUT
+rm program.bin
