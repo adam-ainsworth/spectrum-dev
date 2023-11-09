@@ -18,6 +18,8 @@ It is advisable to keep all the files within /src and not to put spaces in the f
 
 Whenever any files in /src are changed, the tap will be rebuilt and automatically reloaded in the browser.
 
+This can be prevented however by adding ```PAUSE``` on its own line anywhere within the config file, which will abort the compilation when it is reached (and therefore it is best to put it as the first line). If you are updating several files at the same time and don't want the browser to keep refreshing everytime you save a file, this is helpful. Simple remove the line to resume compilation.
+
 If you have tapeTrapsEnabled set to true, you won't see the screen as everything autoloads, but there is a link in the top right for you to download the built tap file.
 
 To SSH into the container run ```docker exec -it spectrum-dev /bin/bash```

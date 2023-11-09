@@ -26,6 +26,11 @@ function add_code() {
 }
 
 while read p; do
+    if test "$p" = "PAUSE"
+    then
+        echo "PAUSE"
+        exit 0
+    fi
 
     line=(${p//:/ })
 
