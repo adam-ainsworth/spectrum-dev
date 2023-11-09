@@ -39,7 +39,7 @@ while read p; do
             add_basic
             ;;
 
-        "scr" | "bin")
+        "scr" | "txt" | "bin")
             add_bin
             ;;
 

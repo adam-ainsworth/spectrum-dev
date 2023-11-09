@@ -11,7 +11,7 @@ Once the container is built and you have it running in your browser, you need to
 The filename can be anything you choose but the extension will determine how it is treated;
 
 * .bas - BASIC program, start signifies the line number to auto run from
-* .scr / .bin - raw binary, will be added as-is, start is where to place the code within RAM
+* .scr / .bin / .txt - raw binary (or text), will be added as-is, start is where to place the code within RAM
 * .asm - Z80 code to be assembled, start is where to place the code within RAM
 
 It is advisable to keep all the files within /src and not to put spaces in the filenames - you can use subfolders if you wish. The header name (ie. the program name when loading) cannot have spaces in.
