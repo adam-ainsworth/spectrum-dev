@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: spectrum-dev
-    restart: always
+    restart: no
     stdin_open: true
     env_file:
       - ./.env
