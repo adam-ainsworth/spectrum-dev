@@ -15,6 +15,12 @@ function add_basic() {
     rm program.bin
 }
 
+function add_boriel() {
+    /root/zxbasic/zxbc.py $INPUT -o program.bin
+    taput add -n "$NAME" -o $START program.bin $OUTPUT
+    rm program.bin
+}
+
 function add_bin() {
     taput add -n "$NAME" -o $START $INPUT $OUTPUT
 }
@@ -42,6 +48,10 @@ while read p; do
     case $EXT in
         "bas")
             add_basic
+            ;;
+
+        "bb")
+            add_boriel
             ;;
 
         "scr" | "txt" | "bin")

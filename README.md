@@ -11,6 +11,7 @@ Once the container is built and you have it running in your browser, you need to
 The filename can be anything you choose but the extension will determine how it is treated;
 
 * .bas - BASIC program, start signifies the line number to auto run from
+* .bb - Boriel ZX BASIC source, compiles into M/C, start is where to place the code within RAM
 * .scr / .bin / .txt - raw binary (or text), will be added as-is, start is where to place the code within RAM
 * .asm - Z80 code to be assembled, start is where to place the code within RAM
 
@@ -36,6 +37,7 @@ The following tools are used
 * ~~[bin2tap](http://zeroteam.sk/bin2tap.html)~~
 * [taput](https://github.com/Sivvus/taput)
 * [JSSpeccy 3](https://github.com/gasman/jsspeccy3)
+* [Boriel BASIC Compiler](https://www.boriel.com/pages/the-zx-basic-compiler.html)
 
 I also relied heavily on code / advice from [this gist](https://gist.github.com/wesort/fabf99b0d4c06093057ac7e3cdcd38fd), and [this tutorial](https://benjamin.computer/posts/2022-04-22-ZX-coding.html) with the [accompanying code](https://github.com/OniDaito/speccy).
 
