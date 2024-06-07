@@ -53,7 +53,7 @@ You can can a file named .env with the following environment variables
 
 Please see the [JSSpeccy 3 readme](https://github.com/gasman/jsspeccy3#embedding) for valid values.
 
-**Note** even if you don't need to use it, you must rename .env.example to .env or Docker won't start.
+**Note** even if you don't need to use it, you must copy .env.example to .env or Docker won't start.
 
 ## Notes
 
