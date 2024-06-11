@@ -10,9 +10,7 @@ if [ -z $PROGRAM ]; then
 fi
 
 function add_basic() {
-    zmakebas -r -o program.bin $INPUT
-    taput add -b -n "$NAME" -o $START program.bin $OUTPUT
-    rm program.bin
+    zmakebas -r -o program.bin $INPUT && taput add -b -n "$NAME" -o $START program.bin $OUTPUT && rm program.bin
 }
 
 function add_bin() {
@@ -20,9 +18,7 @@ function add_bin() {
 }
 
 function add_code() {
-    pasmo -d --bin $INPUT program.bin
-    taput add -n "$NAME" -o $START program.bin $OUTPUT
-    rm program.bin
+    pasmo -d --bin $INPUT program.bin && taput add -n "$NAME" -o $START program.bin $OUTPUT && rm program.bin
 }
 
 while read p; do
