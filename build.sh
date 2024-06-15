@@ -18,6 +18,10 @@ function add_bin() {
 }
 
 function add_code() {
+    sjasmplus --raw=program.bin $INPUT && taput add -n "$NAME" -o $START program.bin $OUTPUT && rm program.bin
+}
+
+function add_code_pasmo() {
     pasmo -d --bin $INPUT program.bin && taput add -n "$NAME" -o $START program.bin $OUTPUT && rm program.bin
 }
 

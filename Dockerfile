@@ -2,6 +2,7 @@ FROM ubuntu/nginx:latest
 
 # it seems Docker on Windows doesn't play nicely with wildcards
 COPY ./taput /usr/bin/
+COPY ./sjasmplus /usr/bin/
 COPY ./init.sh /root/
 COPY ./watch.sh /root/
 COPY ./build.sh /root/
@@ -18,5 +19,8 @@ RUN apt-get update && apt-get install pasmo zmakebas && chmod 700 *.sh
 
 # This rebuilds taput
 # RUN apt-get install git build-essential -y && git clone https://github.com/Sivvus/taput && cd taput && make && apt-get remove git build-essential -y && apt-get purge build-essential && apt-get autoremove -y && apt-get clean
+
+# This rebuilds sjasmplus
+# RUN apt-get update && apt-get install git g++ build-essential -y && git clone --recursive -j8 https://github.com/z00m128/sjasmplus.git && cd sjasmplus/ && git submodule update --init --recursive && make && make install && cd .. && rm -rf sjasmplus/ && cp /usr/local/bin/sjasmplus .  && apt-get remove git g++ build-essential -y && apt-get purge build-essential && apt-get autoremove -y && apt-get clean
 
 CMD nginx && /root/init.sh
