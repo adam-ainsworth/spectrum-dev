@@ -10,7 +10,11 @@ if [ -z $PROGRAM ]; then
 fi
 
 function add_basic() {
-    zmakebas -r -o program.bin $INPUT && taput add -b -n "$NAME" -o $START program.bin $OUTPUT && rm program.bin
+    zmakebas -r -o program.bin $INPUT && taput add -b -n "$NAME" -o $START program.bin $OUTPUT 
+
+    if test -f program.bin; then
+        rm program.bin
+    fi
 }
 
 function add_bin() {
@@ -18,11 +22,19 @@ function add_bin() {
 }
 
 function add_code() {
-    sjasmplus --raw=program.bin $INPUT && taput add -n "$NAME" -o $START program.bin $OUTPUT && rm program.bin
+    sjasmplus --raw=program.bin $INPUT && taput add -n "$NAME" -o $START program.bin $OUTPUT
+
+    if test -f program.bin; then
+        rm program.bin
+    fi
 }
 
 function add_code_pasmo() {
-    pasmo -d --bin $INPUT program.bin && taput add -n "$NAME" -o $START program.bin $OUTPUT && rm program.bin
+    pasmo -d --bin $INPUT program.bin && taput add -n "$NAME" -o $START program.bin $OUTPUT
+
+    if test -f program.bin; then
+        rm program.bin
+    fi
 }
 
 while read p; do

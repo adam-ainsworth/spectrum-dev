@@ -11,7 +11,9 @@ COPY ./jsspeccy /var/www/html/jsspeccy
 
 WORKDIR /root
 
-RUN apt-get update && apt-get install pasmo zmakebas && chmod 700 *.sh
+RUN apt-get update && apt-get install zmakebas && chmod 700 *.sh
+# Not using Pasmo for now
+# RUN apt-get update && apt-get install pasmo zmakebas && chmod 700 *.sh
 
 # This pulls JSSSpeccy from a release and moves it to the correct place
 # ADD https://github.com/gasman/jsspeccy3/releases/download/v3.1/jsspeccy-3.1.zip /root/

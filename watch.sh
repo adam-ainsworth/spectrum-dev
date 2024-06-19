@@ -1,6 +1,10 @@
 #!/bin/bash
 
-cd /root/src 
+if [ -z $FOLDER ]; then
+    cd /root/src 
+else
+    cd /root/src/$FOLDER
+fi
 
 while [[ 1=1 ]]
   do
