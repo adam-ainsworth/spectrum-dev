@@ -14,6 +14,8 @@ The filename can be anything you choose but the extension will determine how it 
 * .scr / .bin / .txt - raw binary (or text), will be added as-is, start is where to place the code within RAM
 * .asm - Z80 code to be assembled, start is where to place the code within RAM
 
+For code files, put the start as 99999 to create a headerless file.
+
 It is advisable to keep all the files within /src and not to put spaces in the filenames - you can use subfolders if you wish. The header name (ie. the program name when loading) cannot have spaces in.
 
 If you are developing multiple programs, you can keep them in subfolders. Just use the FOLDER variable in ```.env```. If you wish to change which program you are working on, just change this value and restart the container.

@@ -18,11 +18,21 @@ function add_basic() {
 }
 
 function add_bin() {
-    taput add -n "$NAME" -o $START $INPUT $OUTPUT
+    if [[ "$START" == "99999" ]]
+    then
+        taput add $INPUT $OUTPUT
+    else
+        taput add -n "$NAME" -o $START $INPUT $OUTPUT
+    fi
 }
 
 function add_code() {
-    sjasmplus --raw=program.bin $INPUT && taput add -n "$NAME" -o $START program.bin $OUTPUT
+    if [[ "$START" == "99999" ]]
+    then
+        sjasmplus --raw=program.bin $INPUT && taput add program.bin $OUTPUT
+    else
+        sjasmplus --raw=program.bin $INPUT && taput add -n "$NAME" -o $START program.bin $OUTPUT
+    fi
 
     if test -f program.bin; then
         rm program.bin
@@ -30,7 +40,12 @@ function add_code() {
 }
 
 function add_code_pasmo() {
-    pasmo -d --bin $INPUT program.bin && taput add -n "$NAME" -o $START program.bin $OUTPUT
+    if [[ "$START" == "99999" ]]
+    then
+        pasmo -d --bin $INPUT program.bin && taput add program.bin $OUTPUT
+    else
+        pasmo -d --bin $INPUT program.bin && taput add -n "$NAME" -o $START program.bin $OUTPUT
+    fi
 
     if test -f program.bin; then
         rm program.bin
