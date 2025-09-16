@@ -17,6 +17,12 @@ function add_basic() {
     fi
 }
 
+function add_boriel() {
+    /root/zxbasic/zxbc.py $INPUT -o program.bin
+    taput add -n "$NAME" -o $START program.bin $OUTPUT
+    rm program.bin
+}
+
 function add_bin() {
     if [[ "$START" == "99999" ]]
     then
@@ -78,7 +84,11 @@ while read p; do
         "asm")
             add_code
             ;;
-        
+
+        "bb")
+            add_boriel
+            ;;
+
         *)
             echo "$EXT is an invalid extension"
             ;;

@@ -11,6 +11,7 @@ Once the container is built and you have it running in your browser, you need to
 The filename can be anything you choose but the extension will determine how it is treated;
 
 * .bas - BASIC program, start signifies the line number to auto run from
+* .bb - Boriel ZX BASIC source, compiles into M/C, start is where to place the code within RAM
 * .scr / .bin / .txt - raw binary (or text), will be added as-is, start is where to place the code within RAM
 * .asm - Z80 code to be assembled, start is where to place the code within RAM
 
@@ -36,6 +37,7 @@ The following tools are used
 
 * [Docker](https://www.docker.com/) with the [ubuntu/nginx image](https://hub.docker.com/r/ubuntu/nginx)
 * [zmakebas](https://github.com/z00m128/zmakebas)
+* [Boriel BASIC Compiler](https://www.boriel.com/pages/the-zx-basic-compiler.html) / [command line options](https://zxbasic.readthedocs.io/en/latest/zxb/#Command_Line_Options)
 * ~~[pasmo](https://pasmo.speccy.org/)~~
 * ~~[bin2tap](http://zeroteam.sk/bin2tap.html)~~
 * [SjASMPlus](https://github.com/z00m128/sjasmplus) / [docs](https://z00m128.github.io/sjasmplus/documentation.html)
