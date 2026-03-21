@@ -85,3 +85,5 @@ while read p; do
     esac
 
 done < $PROGRAM
+
+date > /var/www/html/update.txt

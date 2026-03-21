@@ -22,13 +22,13 @@ If you are developing multiple programs, you can keep them in subfolders. Just u
 
 Whenever any files in /src (or selected subfolder) are changed, the tap will be rebuilt and automatically reloaded in the browser.
 
-This can be prevented however by adding ```PAUSE``` on its own line anywhere within the config file, which will abort the compilation when it is reached (and therefore it is best to put it as the first line). If you are updating several files at the same time and don't want the browser to keep refreshing everytime you save a file, this is helpful. Simple remove the line to resume compilation.
+This can be prevented however by adding ```PAUSE``` on its own line anywhere within the config file, which will abort the compilation when it is reached (and therefore it is best to put it as the first line). If you are updating several files at the same time and don't want the browser to keep refreshing everytime you save a file, this is helpful. Simply remove the line to resume compilation.
 
 If you have tapeTrapsEnabled set to true, you won't see the screen as everything autoloads, but there is a link in the top right for you to download the built tap file.
 
 To SSH into the container run ```docker exec -it spectrum-dev /bin/bash```
 
-There is a set of example files in /example. Feel free to submit any suggestions, and let me know if you find this useful. 
+There is a set of example files in /example. Feel free to submit any suggestions, and let me know if you find this useful.
 
 ## Components
 
@@ -70,6 +70,8 @@ I have included a prebuilt version of taput but you can change the Dockerfile to
 Some of the arguments weren't working with this latest release of JSSpeccy, although they are included in the source code. While I could clone it and build it within the container, it would be very bloated, so I've decided to build it once myself and include it here for now.
 
 I originally used Pasmo for compilation, and that was fine until I started using sources from the web that use directives it didn't recognise. Therefore I have changed it over to SjASMPlus. I have left the Pasmo infrastructure in there and will enable its usage via an env variable at some point.
+
+21st Mar 2026 - I've finally made it more responsive by changing to using a short datestamp file rather than doing a CR of the tap file (and shortening the time between checks from five seconds to one). Also cleaned up some of the JS as it was a bit verbose.
 
 ## Licence
 

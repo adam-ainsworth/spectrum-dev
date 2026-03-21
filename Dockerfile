@@ -11,7 +11,7 @@ COPY ./jsspeccy /var/www/html/jsspeccy
 
 WORKDIR /root
 
-RUN apt-get update && apt-get install zmakebas && chmod 700 *.sh
+RUN apt-get update && apt-get install zmakebas && chmod 700 *.sh && date > /var/www/html/update.txt
 # Not using Pasmo for now
 # RUN apt-get update && apt-get install pasmo zmakebas && chmod 700 *.sh
 
